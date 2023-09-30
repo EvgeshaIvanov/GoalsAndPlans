@@ -73,4 +73,5 @@ dependencies {
 
     implementation(project(":navigation"))
     implementation(project(":greeting"))
+    implementation(project(":home"))
 }

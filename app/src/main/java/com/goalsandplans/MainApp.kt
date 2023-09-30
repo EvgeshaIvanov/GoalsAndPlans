@@ -3,6 +3,7 @@ package com.goalsandplans
 import android.app.Application
 import cafe.adriel.voyager.core.registry.ScreenRegistry
 import com.greeting.featurePostsScreenModule
+import com.home.featureHomeScreenModule
 
 class MainApp : Application() {
 
@@ -11,6 +12,7 @@ class MainApp : Application() {
 
         ScreenRegistry {
             featurePostsScreenModule
+            featureHomeScreenModule
         }
     }
 }
