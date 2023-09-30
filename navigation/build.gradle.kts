@@ -35,6 +35,9 @@ android {
 
 dependencies {
 
+    implementation(libs.voyager.navigation)
+    implementation(libs.voyager.androidx)
+    implementation(libs.voyager.transitions)
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
