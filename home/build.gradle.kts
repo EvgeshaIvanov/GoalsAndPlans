@@ -60,4 +60,5 @@ dependencies {
     debugImplementation(libs.ui.test.manifest)
 
     implementation(project(":navigation"))
+    implementation(project(":core"))
 }
