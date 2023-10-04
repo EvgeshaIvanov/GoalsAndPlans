@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import cafe.adriel.voyager.core.screen.Screen
-import com.core.h2
+import com.core.theme.h2
 
 class HomeScreen(val id: String) : Screen {
     @Composable

@@ -3,7 +3,7 @@ package com.greeting
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import com.core.h1
+import com.core.theme.h1
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -26,9 +26,9 @@ import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import com.core.Click
-import com.core.buttonTextStyle
-import com.core.h3
-import com.core.testSecondary
+import com.core.theme.buttonTextStyle
+import com.core.theme.h3
+import com.core.theme.testSecondary
 import com.greeting_screen.R
 import com.home.HomeScreen
 

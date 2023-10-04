@@ -9,6 +9,7 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
@@ -63,9 +64,20 @@ fun GoalsAndPlansTheme(
         }
     }
 
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
+    val goalsAndPlansTypography =  GoalsAndPlansTypography(
+        h1 = h1,
+        h2 = h2,
+        h3 = h3,
+        secondary = testSecondary,
+        button = buttonTextStyle
     )
+
+    CompositionLocalProvider(
+        LocalTypography provides goalsAndPlansTypography
+    ) {
+        MaterialTheme(
+            colorScheme = colorScheme,
+            content = content
+        )
+    }
 }

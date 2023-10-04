@@ -1,14 +1,13 @@
-package com.core
+package com.core.theme
 
-import androidx.compose.material3.Typography
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
+import com.core.R
 
 // TODO (refactor fonts, colors)
 val h1 = TextStyle(
@@ -50,39 +49,4 @@ val buttonTextStyle = TextStyle(
     fontWeight = FontWeight(600),
     color = Color(0xFFFFFFFF),
     textAlign = TextAlign.Center
-)
-
-val FontNew = FontFamily(
-    Font(R.font.sf_pro_regular, FontWeight.Medium)
-)
-
-private val appFontFamily = FontFamily(
-    fonts = listOf(
-        Font(
-            resId = R.font.sf_pro_regular,
-            weight = FontWeight.W900,
-            style = FontStyle.Normal
-        ),
-        Font(
-            resId = R.font.sf_pro_regular,
-            weight = FontWeight.W900,
-            style = FontStyle.Italic
-        ),
-        Font(
-            resId = R.font.sf_pro_regular,
-            weight = FontWeight.W700,
-            style = FontStyle.Normal
-        ),
-    )
-)
-
-private val defaultTypography = Typography()
-val appTypography = Typography(
-    headlineLarge = defaultTypography.headlineLarge.copy(fontFamily = appFontFamily),
-    headlineMedium = defaultTypography.headlineMedium.copy(fontFamily = appFontFamily),
-    headlineSmall = defaultTypography.headlineSmall.copy(fontFamily = appFontFamily),
-//    h4 = defaultTypography.h4.copy(fontFamily = appFontFamily),
-//    h5 = defaultTypography.h5.copy(fontFamily = appFontFamily),
-//    h6 = defaultTypography.h6.copy(fontFamily = appFontFamily),
-    displayMedium = defaultTypography.displayMedium.copy(fontFamily = appFontFamily),
 )
