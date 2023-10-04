@@ -1,4 +1,4 @@
-package com.goalsandplans.ui.theme
+package com.core.theme
 
 import androidx.compose.ui.graphics.Color
 

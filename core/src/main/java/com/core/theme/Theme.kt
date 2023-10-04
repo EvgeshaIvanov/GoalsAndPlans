@@ -1,4 +1,4 @@
-package com.goalsandplans.ui.theme
+package com.core.theme
 
 import android.app.Activity
 import android.os.Build
