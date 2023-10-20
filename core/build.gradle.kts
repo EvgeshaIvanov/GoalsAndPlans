@@ -5,14 +5,16 @@ plugins {
 }
 
 android {
-    namespace = "com.greeting_screen"
+    namespace = "com.core"
     compileSdk = 34
 
     defaultConfig {
         minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
@@ -49,7 +51,6 @@ dependencies {
     implementation(libs.voyager.navigation)
     implementation(libs.voyager.androidx)
     implementation(libs.voyager.transitions)
-    implementation(libs.voyager.transitions)
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
@@ -66,7 +67,4 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
 
-    implementation(project(":navigation"))
-    implementation(project(":home"))
-    implementation(project(":core"))
 }
