@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.transitions.FadeTransition
+import cafe.adriel.voyager.transitions.ScaleTransition
 import com.core.theme.GoalsAndPlansTheme
 import com.greeting.GreetingScreen
 
@@ -22,20 +23,9 @@ class MainActivity : ComponentActivity() {
             // TODO (animation)
             GoalsAndPlansTheme {
                 Navigator(GreetingScreen()) { navigator ->
-                    FadeTransition(navigator, animationSpec = tween())
+                    ScaleTransition(navigator, animationSpec = tween())
                 }
             }
-        }
-    }
-}
-
-
-@Composable
-@Preview
-private fun PreviewSome() {
-    GoalsAndPlansTheme {
-        Box() {
-            Text(text = "dwdwdw")
         }
     }
 }

@@ -26,10 +26,11 @@ import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import com.core.Click
+import com.core.theme.GoalsAndPlansTheme
+import com.core.theme.LocalTypography
 import com.core.theme.buttonTextStyle
 import com.core.theme.h3
 import com.core.theme.testSecondary
-import com.greeting_screen.R
 import com.home.HomeScreen
 
 class GreetingScreen : Screen {
@@ -47,19 +48,19 @@ fun GreetingUI() {
 
     Box(modifier = Modifier.fillMaxSize()) {
         Image(
-            painter = painterResource(id = R.drawable.greeting_image),
+            painter = painterResource(id = com.core.R.drawable.greeting_image),
             contentDescription = null,
             contentScale = ContentScale.FillBounds,
             modifier = Modifier.fillMaxSize()
         )
         Text(
             "Welcome to \n" +
-                    "NFT Marketplace",
+                    "Some title",
             color = Color.White,
             modifier = Modifier
                 .padding(start = 16.dp, end = 16.dp, top = 64.dp)
                 .align(Alignment.TopCenter),
-            style = h1
+            style = LocalTypography.current.h1
         )
         GreetingCard(
             modifier = Modifier
@@ -100,14 +101,14 @@ fun GreetingCard(modifier: Modifier = Modifier, onButtonClick: Click) {
         ) {
             Text(
                 "Explore and Mint NFTs",
-                style = h3,
+                style = LocalTypography.current.h3,
                 modifier = Modifier
                     .padding(start = 16.dp, end = 16.dp, top = 28.dp),
                 textAlign = TextAlign.Center
             )
             Text(
                 "You can buy and sell the NFTs of the best artists in the world.",
-                style = testSecondary,
+                style = LocalTypography.current.secondary,
                 modifier = Modifier
                     .padding(start = 16.dp, end = 16.dp, top = 6.dp),
                 textAlign = TextAlign.Center
@@ -121,7 +122,7 @@ fun GreetingCard(modifier: Modifier = Modifier, onButtonClick: Click) {
                     containerColor = Color(0xFF000A09)
                 )
             ) {
-                Text(text = "Get started now", style = buttonTextStyle)
+                Text(text = "Get started now", style = LocalTypography.current.button)
             }
         }
     }
@@ -131,5 +132,7 @@ fun GreetingCard(modifier: Modifier = Modifier, onButtonClick: Click) {
 @Preview(showBackground = true)
 @Composable
 private fun GreetingScreenPreview() {
-    GreetingUI()
+    GoalsAndPlansTheme {
+        GreetingUI()
+    }
 }
