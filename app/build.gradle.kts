@@ -53,6 +53,8 @@ android {
 dependencies {
 
     implementation(libs.voyager.navigation)
+    implementation(libs.voyager.kodein)
+    implementation(libs.kodein)
     implementation(libs.voyager.androidx)
     implementation(libs.voyager.transitions)
     implementation(libs.core.ktx)

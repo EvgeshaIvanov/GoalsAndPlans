@@ -3,7 +3,6 @@ package com.greeting
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import com.core.theme.h1
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,6 +13,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -24,27 +24,36 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.kodein.rememberScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import com.core.Click
 import com.core.theme.GoalsAndPlansTheme
 import com.core.theme.LocalTypography
-import com.core.theme.buttonTextStyle
-import com.core.theme.h3
-import com.core.theme.testSecondary
 import com.home.HomeScreen
+import kotlinx.coroutines.flow.collectLatest
 
-class GreetingScreen : Screen {
+class GreetingScreen() : Screen {
 
     @Composable
     override fun Content() {
-        GreetingUI()
+        val navigator = LocalNavigator.current
+
+        val viewModel = rememberScreenModel<GreetingViewModel>()
+
+        GreetingUI(click = { viewModel.setEvent(GreetingEvent.Click) })
+
+        LaunchedEffect(viewModel.action) {
+            viewModel.action.collectLatest { action ->
+                when (action) {
+                    GreetingAction.OpenNewScreen -> navigator?.push(HomeScreen("from greeting"))
+                }
+            }
+        }
     }
 }
 
 @Composable
-fun GreetingUI() {
-
-    val navigator = LocalNavigator.current
+fun GreetingUI(click: Click) {
 
     Box(modifier = Modifier.fillMaxSize()) {
         Image(
@@ -67,7 +76,7 @@ fun GreetingUI() {
                 .align(Alignment.BottomCenter)
                 .padding(bottom = 64.dp),
             onButtonClick = {
-                navigator?.push(HomeScreen("from greeting"))
+                click()
             }
         )
     }
@@ -133,6 +142,6 @@ fun GreetingCard(modifier: Modifier = Modifier, onButtonClick: Click) {
 @Composable
 private fun GreetingScreenPreview() {
     GoalsAndPlansTheme {
-        GreetingUI()
+        GreetingUI {}
     }
 }

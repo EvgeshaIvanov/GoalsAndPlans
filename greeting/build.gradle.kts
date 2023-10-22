@@ -46,9 +46,15 @@ android {
 
 dependencies {
 
+
+    //TODO: add to libs
+    implementation("org.kodein.di:kodein-di-framework-compose:7.19.0")
+
     implementation(libs.voyager.navigation)
     implementation(libs.voyager.androidx)
     implementation(libs.voyager.transitions)
+    implementation(libs.voyager.kodein)
+    implementation(libs.kodein)
     implementation(libs.voyager.transitions)
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
